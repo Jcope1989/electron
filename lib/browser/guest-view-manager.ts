@@ -159,7 +159,7 @@ const createGuest = function (embedder: Electron.WebContents, embedderFrameId: n
   });
 
   // Dispatch guest's frame navigation event to embedder.
-  guest.on('will-frame-navigate', function (event: Electron.WebContentsWillFrameNavigateEventParams) {
+  guest.on('will-frame-navigate', function (event: any) {
     sendToEmbedder(IPC_MESSAGES.GUEST_VIEW_INTERNAL_DISPATCH_EVENT, 'will-frame-navigate', {
       url: event.url,
       isMainFrame: event.isMainFrame,
